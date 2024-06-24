@@ -8,23 +8,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
+import app.Storage;
 import app.Airports;
 import app.Flights;
 import app.ListaEncadeadaDesordenadaSemRepeticao;
 
-import javax.swing.JSplitPane;
-import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
-import java.awt.Insets;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class main extends JFrame {
 
@@ -48,12 +46,8 @@ public class main extends JFrame {
 					frame.setVisible(true);
 					
 					listaAirports = new ListaEncadeadaDesordenadaSemRepeticao<Airports>();
-					
-					listaAirports.insiraNoFim(new Airports("Brasília", "BSB"));
-					listaAirports.insiraNoFim(new Airports("Belo Horizonte", "CNF"));
-					listaAirports.insiraNoFim(new Airports("Rio de Janeiro", "GIG"));
-					listaAirports.insiraNoFim(new Airports("Salvador", "SSA"));
-					listaAirports.insiraNoFim(new Airports("São Paulo", "GRU"));
+
+					listaAirports = Storage.readAirportsFromFile("airports.txt");
 														
 					atual = listaAirports.getPrimeiro();			
 					
@@ -103,12 +97,25 @@ public class main extends JFrame {
 	public main() {
 		setTitle("Airports");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				super.windowClosing(e);
+				try {
+					Storage.saveAirportsToFile("airports.txt", listaAirports);
+					System.out.println("Dados salvos");
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
 		setBounds(100, 100, 840, 630);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));

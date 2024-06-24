@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 import app.Airports;
 import app.Flights;
 import app.ListaEncadeadaDesordenadaSemRepeticao;
-import net.miginfocom.swing.MigLayout;
 
 public class FormDelFlight {
 
@@ -104,8 +103,7 @@ public class FormDelFlight {
 		
 		JPanel panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.WEST);
-		panel_3.setLayout(new MigLayout("", "[69px][][grow][][grow][grow][]", "[14px][][][][][][][]"));
-		
+
 		JLabel lbCodFlight = new JLabel("Número do voo");
 		panel_3.add(lbCodFlight, "cell 0 2,alignx left,aligny center");
 		

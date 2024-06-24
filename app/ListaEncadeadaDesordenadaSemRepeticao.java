@@ -269,6 +269,22 @@ public class ListaEncadeadaDesordenadaSemRepeticao<X> {
 	}
 
 	/**
+	 * Retorna um iterador da lista
+	 * @return um iterador da lista
+	 */
+	public X get(int index) throws Exception {
+		if (index < 0 || index >= this.getQtd())
+			throw new Exception("Invalid index");
+
+		No current = this.primeiro;
+		for (int i = 0; i < index; i++) {
+			current = current.getProx();
+		}
+
+		return current.getInfo();
+	}
+
+	/**
 	 * Verifica se um Nó está presente na lista
 	 * @param i o Nó a ser verificado
 	 * @return se o Nó está na lista
@@ -393,7 +409,7 @@ public class ListaEncadeadaDesordenadaSemRepeticao<X> {
 	}
 
 	public String toString() {
-		String ret = "[";
+		String ret = "";
 
 		No atual = this.primeiro;
 
@@ -406,7 +422,7 @@ public class ListaEncadeadaDesordenadaSemRepeticao<X> {
 			atual = atual.getProx();
 		}
 
-		return ret + "]";
+		return ret;
 	}
 
 	public boolean equals(Object obj) {
@@ -486,5 +502,5 @@ public class ListaEncadeadaDesordenadaSemRepeticao<X> {
 		}
 
 		return ret;
-  }
+  	}
 }

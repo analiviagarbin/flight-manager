@@ -16,6 +16,12 @@ public class Airports
 		this.city = cityName;
 		this.airportCod = cod;
 	}
+
+	public Airports(String cityName, String cod, ListaEncadeadaDesordenadaSemRepeticao<Flights> flights) {
+		this.city = cityName;
+		this.airportCod = cod;
+		this.flights = flights != null ? flights : new ListaEncadeadaDesordenadaSemRepeticao<Flights>();
+	}
 	
 	/**
 	 * Retorna a cidade em que o aeroporto esta situado	
