@@ -129,6 +129,8 @@ public class FormAddFlight {
 				try {
 					atual.addFlight(txtCityDest.getText(), Integer.parseInt(txtCodAirport.getText()));
 				} catch (Exception ex) {
+					ErrorForm errorForm = new ErrorForm("Código de voo inválido, tente novamente um diferente.");
+					errorForm.display();
 				}
 				
 				frmAdicionarVoo.dispose();

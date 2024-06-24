@@ -105,7 +105,8 @@ public class main extends JFrame {
 					Storage.saveAirportsToFile("airports.txt", listaAirports);
 					System.out.println("Dados salvos");
 				} catch (Exception e1) {
-					e1.printStackTrace();
+					ErrorForm errorForm = new ErrorForm("Erro ao salvar os dados");
+					errorForm.display();
 				}
 
 			}
@@ -155,7 +156,8 @@ public class main extends JFrame {
 					listaAirports.insiraNoInicio(atual);
 				}
 				catch(Exception e1) {
-					e1.printStackTrace();
+					ErrorForm errorForm = new ErrorForm(e1.getMessage());
+					errorForm.display();
 				}
 				updateAirports();
 			}
@@ -171,7 +173,8 @@ public class main extends JFrame {
 					listaAirports.insiraNoFim(atual);
 					atual = listaAirports.getPrimeiro();
 				} catch (Exception e1) {
-					e1.printStackTrace();
+					ErrorForm errorForm = new ErrorForm(e1.getMessage());
+					errorForm.display();
 				}
 				updateAirports();
 			}			

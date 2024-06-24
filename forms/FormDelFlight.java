@@ -136,7 +136,11 @@ public class FormDelFlight {
 					}
 				}
 				catch(Exception ex)
-				{}
+				{
+					ErrorForm errorForm = new ErrorForm("Erro ao tentar excluir, tente novamente");
+					errorForm.display();
+				}
+
 			}
 		});
 		panel_3.add(btnSearch, "cell 5 2");

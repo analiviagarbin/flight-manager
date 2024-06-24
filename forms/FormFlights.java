@@ -73,7 +73,8 @@ public class FormFlights {
 		}
 		catch(Exception ex)
 		{
-			System.out.println(ex.getMessage());
+			ErrorForm errorForm = new ErrorForm(ex.getMessage());
+			errorForm.display();
 		}
 		
 	}

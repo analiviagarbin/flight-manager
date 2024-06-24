@@ -119,7 +119,11 @@ public class FormAddAirport {
 					airports.insiraNoFim(new Airports(txtCityAirport.getText(), txtCod.getText()));
 				}
 				catch(Exception ex)
-				{}
+				{
+					ErrorForm errorForm = new ErrorForm("Erro ao inserir aeroporto, tente novamente");
+					errorForm.display();
+				}
+
 				
 				frmAdicionarAeroporto.dispose();
 			}
