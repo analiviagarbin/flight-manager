@@ -1,0 +1,5 @@
+Campinas,VCP,342,Rio de Janeiro,930,Paris
+Brasília,BSB
+Rio de Janeiro,GIG
+Guarulhos,GRU,534,Campinas
+Congonhas,CGH

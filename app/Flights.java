@@ -64,28 +64,4 @@ public class Flights {
 		
 		return true;
 	}
-	
-	/**
-	 * Calcula o hashcode da classe
-	 */
-	public int hashCode()
-	{
-		int ret = 3;
-		
-		ret = ret * 2 + new String(this.cityName)				.hashCode();
-		ret = ret * 2 + Integer.valueOf(this.cod)				.hashCode();
-		
-		if(ret < 0)
-			return ret * -1;
-		
-		return ret;
-	}
-	
-	/**
-	 * Retorna um clone desse objeto
-	 */
-	public Flights clone() {
-		return this;
-	}
-	
 }
