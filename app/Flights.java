@@ -4,16 +4,26 @@ public class Flights {
 	
 	protected String cityName;
 	protected int cod;
-	
+	protected String departureTime;
+	protected String arrivalTime;
+	protected int passengerCount;
+
+
 	/**
 	 * Construtor da classe
 	 * @param city		Cidade de destino do voo
 	 * @param cod		Código do voo
+	 * @param departureTime Horário de saída do voo
+	 * @param arrivalTime Horário de chegada do voo
+	 * @param passengerCount Quantidade de passageiros no voo
 	 */
-	public Flights(String city, int cod)
+	public Flights(String city, int cod, String departureTime, String arrivalTime, int passengerCount)
 	{
 		this.cityName = city;
 		this.cod = cod;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+		this.passengerCount = passengerCount;
 	}
 	
 	/**
@@ -33,7 +43,22 @@ public class Flights {
 	{
 		return this.cod;
 	}
-	
+
+	// Getter for departureTime
+	public String getDepartureTime() {
+		return this.departureTime;
+	}
+
+	// Getter for arrivalTime
+	public String getArrivalTime() {
+		return this.arrivalTime;
+	}
+
+	// Getter for passengerCount
+	public int getPassengerCount() {
+		return this.passengerCount;
+	}
+
 	/**
 	 * Rotorna os dados da classe em formato de String
 	 */

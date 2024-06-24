@@ -24,11 +24,14 @@ public class Storage implements IStorage {
                     String airportCod = parts[1].trim();
 
                     ListaEncadeadaDesordenadaSemRepeticao<Flights> flights = new ListaEncadeadaDesordenadaSemRepeticao<Flights>();
-                    if(parts.length >= 4){
-                        for (int i = 2; i < parts.length; i+=2) {
-                            String flightCode = parts[i].trim();
-                            String homeCity = parts[i+1].trim();
-                            flights.insiraNoFim(new Flights(homeCity, Integer.parseInt(flightCode)));
+                    if(parts.length >= 7){
+                        for (int i = 2; i < parts.length; i+=5) {
+                            String cityName = parts[i].trim();
+                            int cod = Integer.parseInt(parts[i+1].trim());
+                            String departureTime = parts[i+2].trim();
+                            String arrivalTime = parts[i+3].trim();
+                            int passengerCount = Integer.parseInt(parts[i+4].trim());
+                            flights.insiraNoFim(new Flights(cityName, cod, departureTime, arrivalTime, passengerCount));
                         }
                     }
 
@@ -56,11 +59,12 @@ public class Storage implements IStorage {
             for (int i = 0; i < listaAirports.getQtd(); i++) {
                 Airports airport = listaAirports.get(i);
                 writer.write(airport.getCity() + "," + airport.getAirportCod());
-                
+
                 ListaEncadeadaDesordenadaSemRepeticao<Flights> flights = airport.getFlights();
                 for (int j = 0; j < flights.getQtd(); j++) {
                     Flights flight = flights.get(j);
-                    writer.write("," + flight.getCod() + "," + flight.getCityName());
+                    writer.write("," + flight.getCityName() + "," + flight.getCod() + "," + flight.getDepartureTime() + "," + flight.getArrivalTime() + "," + flight.getPassengerCount());
+
                 }
 
                 writer.newLine();

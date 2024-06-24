@@ -1,7 +1,6 @@
 package forms;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,6 +21,9 @@ public class FormDelFlight {
 	private JTextField txtCity;
 	private JTextField txtCodFlight;
 	private JTextField txtDest;
+	private JTextField txtDepartureTime;
+	private JTextField txtArrivalTime;
+	private JTextField txtPassengerCount;
 	private static Airports atual;
 	private static Flights flightToDel;
 
@@ -81,13 +83,13 @@ public class FormDelFlight {
 		
 		JLabel label = new JLabel("");
 		panel_1.add(label);
-		
+
 		JButton btnDelete = new JButton("Excluir");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try 
 				{
-					atual.removeFlight(flightToDel.getCityName(), flightToDel.getCod());
+					atual.removeFlight(flightToDel);
 					frmExcluirVoo.dispose();
 					main.updateAirports();
 				} 
@@ -103,14 +105,14 @@ public class FormDelFlight {
 		
 		JPanel panel_3 = new JPanel();
 		panel_2.add(panel_3, BorderLayout.WEST);
+		panel_3.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lbCodFlight = new JLabel("Número do voo");
-		panel_3.add(lbCodFlight, "cell 0 2,alignx left,aligny center");
-		
+		panel_3.add(lbCodFlight);
 		txtCodFlight = new JTextField();
 		panel_3.add(txtCodFlight, "cell 2 2,growx");
 		txtCodFlight.setColumns(10);
-		
+
 		JButton btnSearch = new JButton("Procurar");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -125,6 +127,9 @@ public class FormDelFlight {
 						if(atualFlights.getCod() == Integer.parseInt(txtCodFlight.getText()))
 						{
 							txtDest.setText(atualFlights.getCityName());
+							txtDepartureTime.setText(atualFlights.getDepartureTime());
+							txtArrivalTime.setText(atualFlights.getArrivalTime());
+							txtPassengerCount.setText(Integer.toString(atualFlights.getPassengerCount()));
 							btnDelete.setEnabled(true);
 							flightToDel = atualFlights;
 						}
@@ -137,21 +142,42 @@ public class FormDelFlight {
 				}
 				catch(Exception ex)
 				{
-					ErrorForm errorForm = new ErrorForm("Erro ao tentar excluir, tente novamente");
+					ErrorForm errorForm = new ErrorForm("Voo não encontrado");
 					errorForm.display();
 				}
 
 			}
 		});
-		panel_3.add(btnSearch, "cell 5 2");
+
+		JLabel lbDepartureTime = new JLabel("Horário de saída");
+		panel_3.add(lbDepartureTime);
+
+		txtDepartureTime = new JTextField();
+		txtDepartureTime.setColumns(10);
+		panel_3.add(txtDepartureTime);
+
+		JLabel lbArrivalTime = new JLabel("Horário de chegada");
+		panel_3.add(lbArrivalTime);
+
+		txtArrivalTime = new JTextField();
+		txtArrivalTime.setColumns(10);
+		panel_3.add(txtArrivalTime);
+
+		JLabel lbPassengerCount = new JLabel("Quantidade de passageiros");
+		panel_3.add(lbPassengerCount);
+
+		txtPassengerCount = new JTextField();
+		txtPassengerCount.setColumns(10);
+		panel_3.add(txtPassengerCount);
 		
 		JLabel lblNewLabel_2 = new JLabel("Destino");
 		panel_3.add(lblNewLabel_2, "cell 0 3");
-		
+
 		txtDest = new JTextField();
 		txtDest.setEditable(false);
 		panel_3.add(txtDest, "cell 2 3,growx");
 		txtDest.setColumns(10);
+		panel_3.add(btnSearch, "cell 5 2");
 	}
 
 	public void setVisible(boolean b) {

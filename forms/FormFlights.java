@@ -62,7 +62,7 @@ public class FormFlights {
 						flightsAirport.removaDoInicio();
 						flightsAirport.insiraNoFim(atualFlights);
 						
-						model.addRow(new Object[]{atualFlights.getCityName(), atualFlights.getCod(), atual.getCity(), atual.getAirportCod()});
+						model.addRow(new Object[]{atualFlights.getCityName(), atualFlights.getCod(), atual.getCity(), atualFlights.getDepartureTime(), atualFlights.getArrivalTime(), atualFlights.getPassengerCount(), atual.getAirportCod()});
 					}
 				}
 
@@ -92,7 +92,7 @@ public class FormFlights {
 	private void initialize() {
 		frmTodosOsVoos = new JFrame();
 		frmTodosOsVoos.setTitle("Voos");
-		frmTodosOsVoos.setBounds(100, 100, 600, 450);
+		frmTodosOsVoos.setBounds(100, 100, 1000, 450);
 		frmTodosOsVoos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmTodosOsVoos.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -115,6 +115,9 @@ public class FormFlights {
 		model.addColumn("Cidade Destino");
 		model.addColumn("Número do voo");
 		model.addColumn("Cidade natal");
+		model.addColumn("Horário de saída"); // new attribute
+		model.addColumn("Horário de chegada"); // new attribute
+		model.addColumn("Quantidade de passageiros");
 		model.addColumn("Aeroporto natal");
 		tbAllFlights.getColumnModel().getColumn(0).setMinWidth(200);
 		tbAllFlights.getColumnModel().getColumn(1).setMinWidth(50);

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import app.Airports;
+import app.Flights;
 
 public class FormAddFlight {
 
@@ -21,6 +22,9 @@ public class FormAddFlight {
 	private JTextField txtCodAirport;
 	private JTextField txtCod;
 	private JTextField txtCity;
+	private JTextField txtDepartureTime;
+	private JTextField txtArrivalTime;
+	private JTextField txtPassengerCount;
 	private static Airports atual;
 
 	/**
@@ -73,6 +77,27 @@ public class FormAddFlight {
 		txtCodAirport = new JTextField();
 		txtCodAirport.setColumns(10);
 		panel_3.add(txtCodAirport);
+
+		JLabel lbDepartureTime = new JLabel("Horário de saída");
+		panel_3.add(lbDepartureTime);
+
+		txtDepartureTime = new JTextField();
+		txtDepartureTime.setColumns(10);
+		panel_3.add(txtDepartureTime);
+
+		JLabel lbArrivalTime = new JLabel("Horário de chegada");
+		panel_3.add(lbArrivalTime);
+
+		txtArrivalTime = new JTextField();
+		txtArrivalTime.setColumns(10);
+		panel_3.add(txtArrivalTime);
+
+		JLabel lbPassengerCount = new JLabel("Quantidade de passageiros");
+		panel_3.add(lbPassengerCount);
+
+		txtPassengerCount = new JTextField();
+		txtPassengerCount.setColumns(10);
+		panel_3.add(txtPassengerCount);
 		
 		JPanel panel_1 = new JPanel();
 		panel_3.add(panel_1);
@@ -127,7 +152,14 @@ public class FormAddFlight {
 					return;
 				}
 				try {
-					atual.addFlight(txtCityDest.getText(), Integer.parseInt(txtCodAirport.getText()));
+					Flights newFlight = new Flights(
+							txtCityDest.getText(),
+							Integer.parseInt(txtCodAirport.getText()),
+							txtDepartureTime.getText(),
+							txtArrivalTime.getText(),
+							Integer.parseInt(txtPassengerCount.getText())
+					);
+					atual.addFlight(newFlight);
 				} catch (Exception ex) {
 					ErrorForm errorForm = new ErrorForm("Código de voo inválido, tente novamente um diferente.");
 					errorForm.display();

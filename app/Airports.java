@@ -82,17 +82,17 @@ public class Airports
 	 * @param numFlight			Número do voo
 	 * @throws Exception		Se um dos parâmetros estiver errado
 	 */
-	public void addFlight(String cityName, int numFlight) throws Exception
+	public void addFlight(Flights flight) throws Exception
 	{
 		try 
 		{
-			if(cityName == null)
+			if(flight.cityName == null)
 				throw new Exception("ID da cidade não informado");
 			
-			if(numFlight < 0)
+			if(flight.cod < 0)
 				throw new Exception("Número do voo negativo");
 			
-			flights.insiraNoFim(new Flights(cityName, numFlight));
+			flights.insiraNoFim(flight);
 		}
 		catch(Exception ex)
 		{
@@ -100,28 +100,17 @@ public class Airports
 		}
 	}
 	
-	/**
-	 * Remove um voo 
-	 * @param destination 		Destino do voo a ser removido
-	 * @param num				Número do voo a ser removido
-	 * @throws Exception		Se um dos parâmetros estiver errado
-	 */
-	public void removeFlight(String destination, int num) throws Exception
+	public void removeFlight(Flights toRemoveFlight) throws Exception
 	{
-		if(num < 0)
-			throw new Exception("Número do voo inválido");
-		
-		try 
+		try
 		{
-			Flights toRemove = new Flights(destination, num);
-			
-			if(!flights.tem(toRemove))
+			if(!flights.tem(toRemoveFlight))
 			{
 				System.out.println("não tem");
 				return;
 			}
 				
-			flights.remova(toRemove);
+			flights.remova(toRemoveFlight);
 		}
 		catch(Exception ex)
 		{
