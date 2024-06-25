@@ -228,37 +228,25 @@ Requisitos:
 
 ​		- Configuração de debug para IntelliJ
 
-​		**```****
-**	<component name="ProjectRunConfigurationManager">
+```
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="forms.main" />
+    <module name="flight-manager" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="forms.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
+```
 
- <configuration default="false" name="main" type="Application" factoryName="Application" nameIsGenerated="true">
 
-  <option name="MAIN_CLASS_NAME" value="forms.main" />
-
-  <module name="flight-manager" />
-
-  <extension name="coverage">
-
-   <pattern>
-
-​    <option name="PATTERN" value="forms.*" />
-
-​    <option name="ENABLED" value="true" />
-
-   </pattern>
-
-  </extension>
-
-  <method v="2">
-
-   <option name="Make" enabled="true" />
-
-  </method>
-
- </configuration>
-
-</component>**
-****```**
 
 7. **Problemas.**
 
