@@ -4,6 +4,12 @@ import java.io.*;
 
 public class Storage implements IStorage {
 
+    /**
+     * Reads Airports data from a file and returns a list of Airports.
+     * @param filePath The path of the file to read from.
+     * @return A list of Airports read from the file.
+     * @throws IOException If an I/O error occurs.
+     */
     public static ListaEncadeadaDesordenadaSemRepeticao<Airports> readAirportsFromFile(String filePath) throws IOException {
         ListaEncadeadaDesordenadaSemRepeticao<Airports> listaAirports = new ListaEncadeadaDesordenadaSemRepeticao<Airports>();
         BufferedReader reader = null;
@@ -50,6 +56,12 @@ public class Storage implements IStorage {
         return listaAirports;
     }
 
+    /**
+     * Writes a list of Airports to a file.
+     * @param filePath The path of the file to write to.
+     * @param listaAirports The list of Airports to write to the file.
+     * @throws Exception If an error occurs.
+     */
     public static void saveAirportsToFile(String filePath, ListaEncadeadaDesordenadaSemRepeticao<Airports> listaAirports) throws Exception {
         BufferedWriter writer = null;
 

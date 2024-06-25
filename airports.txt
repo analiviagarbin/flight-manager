@@ -1,6 +1,6 @@
+Paris,CDG,Rio de Janeiro,942,21:00,03:00,42
 Congonhas,CGH,Campinas,213,19:30,20:30,15,Valinhos,321,20:30,21:00,2,Paris,123,04:00,08:00,32
 Campinas,VCP
 Brasília,BSB
 Rio de Janeiro,GIG
 Guarulhos,GRU
-Paris,CDG,Rio de Janeiro,942,21:00,03:00,42
