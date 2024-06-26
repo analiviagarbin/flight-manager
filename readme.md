@@ -1,8 +1,8 @@
 # Relatório #
 
-Ana Flor de Oliveira Stefani    4770143
-Ana Lívia de Magalhães Garbin  14557394
-Nícolas Martins de Oliveira    14600902
+| Ana Flor de Oliveira Stefani    4770143
+| Ana Lívia de Magalhães Garbin  14557394
+| Nícolas Martins de Oliveira    14600902
 
 1. **Requisitos.**
 
